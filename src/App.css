@@ -1,38 +1,138 @@
-.App {
-  text-align: center;
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  --primary-background-color: #65ccb8;
+  --primary-text-color: #f2f2f2;
+  --primary-menu-color: #3b945e;
+  --secondary-menu-color: #57ba98;
+  --primary-action-color: #182628;
+  --secondary-action-color: #324d52;
+  --transition: all 0.3s linear;
+  --radius: 0.25rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*
+=============== 
+Global styles
+===============
+*/
+
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-color: var(--primary-background-color);
+  margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h1,
+h2,
+h3,
+h4 {
+  color: var(--primary-text-color);
+  margin: 0;
+}
+
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+
+.btn {
+  font-size: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius);
+  border-color: transparent;
+  color: white;
+  background: var(--primary-action-color);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.menu-btn:hover {
+  rotate: 90deg;
+}
+
+.btn:hover {
+  background: var(--secondary-action-color);
+}
+
+ul {
+  list-style-type: none;
+}
+
+.sign-in {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*
+=============== 
+Navbar styles
+===============
+*/
+
+.navbar {
+  width: 100%;
+  height: 5rem;
+  background-color: var(--secondary-menu-color);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-header {
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-links {
+  display: none;
+}
+
+@media screen and (min-width: 800px) {
+  .menu-btn {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+
+  .nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .link-btn {
+    height: 100%;
+    background: transparent;
+    border-color: transparent;
+    font-size: 1.1rem;
+    color: white;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    width: 10rem;
+  }
+
+  .sign-in {
+    display: block;
   }
 }
