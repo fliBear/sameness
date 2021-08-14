@@ -24,14 +24,14 @@ const AppProvider = ({ children }) => {
 
   return (
     <AppContext.Provider
-      value={
-        (isMenuOpen,
+      value={{
+        isMenuOpen,
         isSubmenuOpen,
         openMenu,
         openSubmenu,
         closeMenu,
-        closeSubmenu)
-      }
+        closeSubmenu,
+      }}
     >
       {children}
     </AppContext.Provider>

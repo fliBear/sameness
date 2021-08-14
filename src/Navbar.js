@@ -1,8 +1,15 @@
 import React from "react";
 import "./App.css";
 import { FaBars } from "react-icons/fa";
+import { useGlobalContext } from "./context";
 
 export default function Navbar() {
+  const { openSubmenu } = useGlobalContext();
+
+  const displaySubmenu = () => {
+    openSubmenu();
+  };
+
   return (
     <nav className="navbar">
       <div className="nav-header">
@@ -11,10 +18,14 @@ export default function Navbar() {
         </a>
         <ul className="nav-links">
           <li>
-            <button className="link-btn">Games</button>
+            <button className="link-btn" onMouseOver={displaySubmenu}>
+              Games
+            </button>
           </li>
           <li>
-            <button className="link-btn">stats</button>
+            <button className="link-btn" onMouseOver={displaySubmenu}>
+              stats
+            </button>
           </li>
         </ul>
         <button className="btn menu-btn">
