@@ -85,6 +85,16 @@ a {
   text-decoration: none;
 }
 
+.page-body {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.submenu {
+  display: none;
+}
+
 /*
 =============== 
 Navbar and menu styles
@@ -99,6 +109,7 @@ Navbar and menu styles
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
 .nav-header {

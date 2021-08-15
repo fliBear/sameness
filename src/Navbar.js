@@ -4,7 +4,7 @@ import { FaBars } from "react-icons/fa";
 import { useGlobalContext } from "./context";
 
 export default function Navbar() {
-  const { openSubmenu } = useGlobalContext();
+  const { openSubmenu, closeSubmenu } = useGlobalContext();
 
   const displaySubmenu = (e) => {
     const submenuContent = e.target.textContent;
@@ -14,8 +14,14 @@ export default function Navbar() {
     openSubmenu(submenuContent, { horizontal, vertical });
   };
 
+  const hideSubmenu = (e) => {
+    if (!e.target.classList.contains("link-btn")) {
+      closeSubmenu();
+    }
+  };
+
   return (
-    <nav className="navbar">
+    <nav className="navbar" onMouseOver={hideSubmenu}>
       <div className="nav-header">
         <a href="/">
           <h1>Sameness</h1>
