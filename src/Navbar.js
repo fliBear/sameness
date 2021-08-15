@@ -4,7 +4,7 @@ import { FaBars } from "react-icons/fa";
 import { useGlobalContext } from "./context";
 
 export default function Navbar() {
-  const { openSubmenu, closeSubmenu } = useGlobalContext();
+  const { openSubmenu, closeSubmenu, openMenu } = useGlobalContext();
 
   const displaySubmenu = (e) => {
     const submenuContent = e.target.textContent;
@@ -38,7 +38,7 @@ export default function Navbar() {
             </button>
           </li>
         </ul>
-        <button className="btn menu-btn">
+        <button className="btn menu-btn" onClick={openMenu}>
           <FaBars></FaBars>
         </button>
         <button className="btn sign-in">Sign In</button>
