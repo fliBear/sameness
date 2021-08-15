@@ -6,8 +6,12 @@ import { useGlobalContext } from "./context";
 export default function Navbar() {
   const { openSubmenu } = useGlobalContext();
 
-  const displaySubmenu = () => {
-    openSubmenu();
+  const displaySubmenu = (e) => {
+    const submenuContent = e.target.textContent;
+    const contentData = e.target.getBoundingClientRect();
+    const horizontal = (contentData.right + contentData.left) / 2;
+    const vertical = contentData.bottom;
+    openSubmenu(submenuContent, { horizontal, vertical });
   };
 
   return (
@@ -19,7 +23,7 @@ export default function Navbar() {
         <ul className="nav-links">
           <li>
             <button className="link-btn" onMouseOver={displaySubmenu}>
-              Games
+              games
             </button>
           </li>
           <li>

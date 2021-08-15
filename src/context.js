@@ -5,6 +5,8 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+  const [submenuContent, setSubmenuContent] = useState("");
+  const [location, setLocation] = useState({});
 
   const openMenu = () => {
     setIsMenuOpen(true);
@@ -14,8 +16,10 @@ const AppProvider = ({ children }) => {
     setIsMenuOpen(false);
   };
 
-  const openSubmenu = () => {
+  const openSubmenu = (newSubmenuContent, positions) => {
     setIsSubmenuOpen(true);
+    setSubmenuContent(newSubmenuContent);
+    setLocation(positions);
   };
 
   const closeSubmenu = () => {
@@ -31,6 +35,9 @@ const AppProvider = ({ children }) => {
         openSubmenu,
         closeMenu,
         closeSubmenu,
+        setSubmenuContent,
+        submenuContent,
+        location,
       }}
     >
       {children}
