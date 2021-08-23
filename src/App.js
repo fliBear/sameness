@@ -3,6 +3,7 @@ import Landing from "./landing/Landing";
 import PageNotFound from "./errors/pageNotFound";
 import Navbar from "./Navbar";
 import CreateUnoGame from "./uno/CreateUnoGame";
+import UnoGame from "./uno/UnoGame";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -13,8 +14,11 @@ function App() {
                 <Route exact path="/">
                     <Landing></Landing>
                 </Route>
-                <Route path="/create-uno-game">
+                <Route exact path="/create-uno-game">
                     <CreateUnoGame></CreateUnoGame>
+                </Route>
+                <Route path="/uno-game">
+                    <UnoGame></UnoGame>
                 </Route>
                 <Route path="*">
                     <PageNotFound></PageNotFound>
