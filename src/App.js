@@ -14,7 +14,7 @@ function App() {
                 <Route exact path="/">
                     <Landing></Landing>
                 </Route>
-                <Route exact path="/create-uno-game">
+                <Route path="/create-uno-game">
                     <CreateUnoGame></CreateUnoGame>
                 </Route>
                 <Route path="/uno-game">
