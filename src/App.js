@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
     return (
         <Router>
-            <Navbar></Navbar>
+            <Navbar />
             <Switch>
                 <Route exact path="/">
                     <Landing></Landing>

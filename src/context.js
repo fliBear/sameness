@@ -28,7 +28,6 @@ const AppProvider = ({ children }) => {
     };
 
     const createUnoGame = (id) => {
-        console.log(id, "trying...");
         setUnoGameId(id);
     };
 
