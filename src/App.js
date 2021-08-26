@@ -1,30 +1,11 @@
 import "./App.css";
-import Landing from "./landing/Landing";
-import PageNotFound from "./errors/pageNotFound";
-import Navbar from "./Navbar";
-import CreateUnoGame from "./uno/CreateUnoGame";
-import UnoGame from "./uno/UnoGame";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Body from "./Body";
 
 function App() {
     return (
-        <Router>
-            <Navbar />
-            <Switch>
-                <Route exact path="/">
-                    <Landing></Landing>
-                </Route>
-                <Route path="/create-uno-game">
-                    <CreateUnoGame></CreateUnoGame>
-                </Route>
-                <Route path="/uno-game">
-                    <UnoGame></UnoGame>
-                </Route>
-                <Route path="*">
-                    <PageNotFound></PageNotFound>
-                </Route>
-            </Switch>
-        </Router>
+        <main>
+            <Body></Body>
+        </main>
     );
 }
 
