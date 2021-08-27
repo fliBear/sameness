@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaCheck } from "react-icons/fa";
+import { useGlobalContext } from "./context";
 
 export default function PlayerEdit(player) {
-    const [isEditting, setIsEditting] = useState(false);
+    const { finishPlayerEdit } = useGlobalContext();
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        setIsEditting(false);
+        finishPlayerEdit(player.name);
     };
 
     return (
-        <div className={isEditting ? "edit-score-form" : "player-form no-show"}>
+        <div
+            className={
+                player.isEditing ? "edit-score-form" : "player-form no-show"
+            }
+        >
             <form className="flex-display" onSubmit={handleSubmit}>
                 <div className="flex-display edit-element-container">
                     <div className="edit-element">

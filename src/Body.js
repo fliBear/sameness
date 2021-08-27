@@ -9,7 +9,7 @@ export default function Body() {
         <section>
             <div className="players-container center">
                 {players.map((player) => {
-                    return <Player {...player} />;
+                    return <Player key={player.name} {...player} />;
                 })}
             </div>
         </section>
