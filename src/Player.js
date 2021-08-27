@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-import { useGlobalContext } from "./context";
 import PlayerData from "./PlayerData";
 import PlayerForm from "./PlayerForm";
+import PlayerEdit from "./PlayerEdit";
 
-const Player = () => {
-    const [player, setPlayer] = useState({ name: "John", score: 0, id: 1 });
-    const { inputtingNewRound } = useGlobalContext();
-
+const Player = (player) => {
     return (
         <article className="player-container">
             <PlayerData {...player}></PlayerData>
-            <PlayerForm {...{ player, inputtingNewRound }}></PlayerForm>
+            <PlayerEdit {...player}></PlayerEdit>
+            <PlayerForm {...player}></PlayerForm>
         </article>
     );
 };
