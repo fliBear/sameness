@@ -144,7 +144,7 @@ a {
 .score-input-text {
     margin-right: 1rem;
     margin-top: 1rem;
-    width: 10em;
+    width: 10rem;
 }
 
 .no-show {
@@ -175,11 +175,6 @@ a {
     flex-direction: column;
 }
 
-.edit-element {
-    display: inline-block;
-    margin-right: 3rem;
-}
-
 .create-player-form {
     flex-direction: column;
     margin-top: 2rem;
@@ -201,9 +196,14 @@ a {
     background-color: var(--primary-element-background-color);
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 800px) {
     .edit-element-container {
         flex-direction: row;
         width: 30vw;
+    }
+
+    .edit-element {
+        display: inline-block;
+        margin-right: 3rem;
     }
 }
