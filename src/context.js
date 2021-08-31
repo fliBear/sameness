@@ -1,23 +1,35 @@
 import React, { useState, useContext } from "react";
-import { finishEdit, startEdit } from "./utils";
+import {
+    finishEdit,
+    startEdit,
+    playerNextRound,
+    playerCalculateScore,
+    checkIfInputtingNextRound,
+    addPlayer,
+} from "./utils";
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-    const [players, setPlayers] = useState([
-        { name: "John", score: 0, isEditing: false },
-        {
-            name: "Dave",
-            score: 5,
-            isEditing: false,
-        },
-    ]);
-    const [inputtingNewRound, setInputtingNewRound] = useState(false);
-    const finishPlayerEdit = (name) => {
+    const [players, setPlayers] = useState([]);
+
+    const createPlayer = (name) => {
+        if (!name) {
+            return;
+        }
+        const newPlayers = addPlayer(players, name);
+        setPlayers(
+            newPlayers.map((player) => {
+                return player;
+            })
+        );
+    };
+
+    const finishPlayerEdit = (name, newName, lastRoundScore) => {
         setPlayers(
             players.map((player) => {
                 if (player.name === name) {
-                    return finishEdit(player);
+                    return finishEdit(player, newName, lastRoundScore);
                 } else {
                     return player;
                 }
@@ -39,15 +51,40 @@ const AppProvider = ({ children }) => {
         setPlayers(players.filter((player) => player.name !== name));
     };
 
+    const startNextRound = () => {
+        const finishedInputtingRound = checkIfInputtingNextRound(players);
+        if (!finishedInputtingRound) {
+            return;
+        }
+        setPlayers(
+            players.map((player) => {
+                return playerNextRound(player);
+            })
+        );
+    };
+
+    const playerNewRound = (name, score) => {
+        setPlayers(
+            players.map((player) => {
+                if (player.name === name) {
+                    return playerCalculateScore(player, score);
+                } else {
+                    return player;
+                }
+            })
+        );
+    };
+
     return (
         <AppContext.Provider
             value={{
                 players,
-                inputtingNewRound,
-                setInputtingNewRound,
+                createPlayer,
                 startPlayerEdit,
                 finishPlayerEdit,
                 deletePlayer,
+                startNextRound,
+                playerNewRound,
             }}
         >
             {children}

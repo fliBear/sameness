@@ -1,6 +1,6 @@
 import React from "react";
 import PlayerData from "./PlayerData";
-import PlayerForm from "./PlayerForm";
+import PlayerForm from "./PlayerNextRound";
 import PlayerEdit from "./PlayerEdit";
 
 const Player = (player) => {

@@ -7,11 +7,14 @@ export default function PlayerData(player) {
 
     return (
         <div className="flex-display">
-            <h3>{player.name}</h3>
-            <h3>{player.score}</h3>
+            <div className="flex-display data-container">
+                <h3>{player.name}</h3>
+                <h3>{player.score}</h3>
+            </div>
+
             <div className="flex-display player-buttons-container">
                 <button
-                    className="btn"
+                    className="btn btn-player"
                     onClick={() => {
                         startPlayerEdit(player.name);
                     }}
@@ -19,7 +22,7 @@ export default function PlayerData(player) {
                     <FaPen></FaPen>
                 </button>
                 <button
-                    className="btn"
+                    className="btn btn-player"
                     onClick={() => {
                         deletePlayer(player.name);
                     }}

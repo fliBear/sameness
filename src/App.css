@@ -31,6 +31,18 @@ Global styles
     box-sizing: border-box;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 body {
     background-color: var(--primary-background-color);
     margin: 0;
@@ -57,10 +69,18 @@ h4 {
     font-size: 0.875rem;
 }
 
+.btn > h4 {
+    color: var(--primary-element-background-color);
+}
+
 .btn {
     color: var(--primary-element-background-color);
     background-color: var(--text-button-color);
     border-color: var(--text-button-color);
+    border-radius: var(--radius);
+}
+
+.btn-player {
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
@@ -69,6 +89,12 @@ h4 {
 
 .btn:hover {
     background: var(--secondary-action-color);
+}
+
+.body-btn {
+    margin-top: 2rem;
+    width: 8rem;
+    height: 3rem;
 }
 
 ul {
@@ -93,6 +119,12 @@ a {
     transform: translate(-50%, -50%);
 }
 
+.center-horizontaly {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
 .players-container {
     width: 90vw;
     height: auto;
@@ -110,9 +142,9 @@ a {
 }
 
 .score-input-text {
-    display: inline-block;
     margin-right: 1rem;
     margin-top: 1rem;
+    width: 10em;
 }
 
 .no-show {
@@ -139,17 +171,29 @@ a {
     margin-top: 1rem;
 }
 .edit-element-container {
-    width: 40vw;
+    width: 50vw;
     flex-direction: column;
 }
 
 .edit-element {
     display: inline-block;
+    margin-right: 3rem;
+}
+
+.create-player-form {
+    flex-direction: column;
+    margin-top: 2rem;
+    justify-content: space-between;
+    height: 5rem;
+}
+
+.data-container {
+    width: 45vw;
 }
 
 @media screen and (min-width: 576px) {
     .edit-element-container {
-        width: 40vw;
         flex-direction: row;
+        width: 30vw;
     }
 }

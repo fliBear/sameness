@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FaCheck } from "react-icons/fa";
 import { useGlobalContext } from "./context";
 
 export default function PlayerEdit(player) {
     const { finishPlayerEdit } = useGlobalContext();
+    const nameRef = useRef(null);
+    const scoreRef = useRef(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        finishPlayerEdit(player.name);
+        finishPlayerEdit(
+            player.name,
+            e.target.name.value,
+            e.target.lastRoundScore.value
+        );
+        nameRef.current.value = "";
+        scoreRef.current.value = "";
     };
 
     return (
@@ -24,7 +32,12 @@ export default function PlayerEdit(player) {
                                 Enter new name:
                             </h4>
                         </label>
-                        <input type="text" id={`${player.name}-new-name`} />
+                        <input
+                            type="text"
+                            id={`${player.name}-new-name`}
+                            name="name"
+                            ref={nameRef}
+                        />
                     </div>
                     <div className="edit-element">
                         <label htmlFor={`${player.name}-last-round-score`}>
@@ -33,12 +46,14 @@ export default function PlayerEdit(player) {
                             </h4>
                         </label>
                         <input
-                            type="text"
+                            type="number"
                             id={`${player.name}-last-round-score`}
+                            name="lastRoundScore"
+                            ref={scoreRef}
                         />
                     </div>
                 </div>
-                <button className="btn" type="submit">
+                <button className="btn btn-player" type="submit">
                     <FaCheck></FaCheck>
                 </button>
             </form>
