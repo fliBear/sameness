@@ -21,7 +21,7 @@ export default function PlayerEdit(player) {
     return (
         <div
             className={
-                player.isEditing ? "edit-score-form" : "player-form no-show"
+                player.isEditing ? "edit-score-form" : "edit-score-form no-show"
             }
         >
             <form className="flex-display" onSubmit={handleSubmit}>
