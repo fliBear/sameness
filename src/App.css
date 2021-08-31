@@ -191,6 +191,16 @@ a {
     width: 45vw;
 }
 
+.round {
+    position: absolute;
+    left: 4rem;
+    top: 2rem;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--primary-element-background-color);
+}
+
 @media screen and (min-width: 576px) {
     .edit-element-container {
         flex-direction: row;

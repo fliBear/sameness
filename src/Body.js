@@ -3,7 +3,7 @@ import Player from "./Player";
 import { useGlobalContext } from "./context";
 
 export default function Body() {
-    const { players, startNextRound, createPlayer } = useGlobalContext();
+    const { players, startNextRound, createPlayer, round } = useGlobalContext();
     const newPlayerRef = useRef(null);
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -13,6 +13,9 @@ export default function Body() {
 
     return (
         <section>
+            <div className="round">
+                <h3 className="center">{round}</h3>
+            </div>
             <button
                 className="btn body-btn center-horizontaly"
                 onClick={startNextRound}

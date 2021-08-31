@@ -12,6 +12,7 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
     const [players, setPlayers] = useState([]);
+    const [round, setRound] = useState(0);
 
     const createPlayer = (name) => {
         if (!name) {
@@ -53,7 +54,7 @@ const AppProvider = ({ children }) => {
 
     const startNextRound = () => {
         const finishedInputtingRound = checkIfInputtingNextRound(players);
-        if (!finishedInputtingRound) {
+        if (!finishedInputtingRound || players.length === 0) {
             return;
         }
         setPlayers(
@@ -61,6 +62,7 @@ const AppProvider = ({ children }) => {
                 return playerNextRound(player);
             })
         );
+        setRound(round + 1);
     };
 
     const playerNewRound = (name, score) => {
@@ -85,6 +87,7 @@ const AppProvider = ({ children }) => {
                 deletePlayer,
                 startNextRound,
                 playerNewRound,
+                round,
             }}
         >
             {children}
